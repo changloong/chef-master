@@ -1,0 +1,1 @@
+{{ data_bag.mysql.service.password | raw }}

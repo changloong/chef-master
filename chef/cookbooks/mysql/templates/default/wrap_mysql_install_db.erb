@@ -1,0 +1,32 @@
+#!/bin/sh
+PATH="<%= node['mysql']['service']['bin_dir'] %>:/sbin:/usr/sbin:/bin:/usr/bin"
+export PATH
+
+
+if test -x "<%= node['mysql']['service']['mysql_install_db'] %>"
+then
+  mysql_install_db="<%= node['mysql']['service']['mysql_install_db'] %>"
+elif test -x "<%= node['mysql']['service']['dir'] %>/scripts/mysql_install_db"
+then
+  mysql_install_db="<%= node['mysql']['service']['dir'] %>/scripts/mysql_install_db"
+elif test -x "<%= node['mysql']['service']['bin_dir'] %>/../scripts/mysql_install_db"
+then
+  mysql_install_db="<%= node['mysql']['service']['mysql_install_db'] %>"
+  echo "$mysql_install_db is not exists"
+  exit;
+fi
+
+$mysql_install_db \
+    --defaults-file=<%= node['mysql']['service']['etc_dir'] %>/my.cnf \
+    --basedir=<%= node['mysql']['mysqld']['basedir'] %> \
+    --keep-my-cnf \
+    --skip-name-resolve $*
+
+mysql_init_password="$HOME/.chefsolo/cache/mysql_init_password_<%= node['knife_recipe_id'] %>.sql"
+if test -e "$mysql_init_password"
+then
+    /etc/init.d/<%= node['mysql']['service']['service_name'] %> restart
+    sleep 1
+    cat $mysql_init_password | <%= node['mysql']['service']['wrap_bin_dir'] %>/mysql.sh -u root
+    rm -rf $mysql_init_password
+fi

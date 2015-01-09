@@ -1,0 +1,48 @@
+
+[submodule "chef/site-cookbooks/bluepill"]
+	path = chef/site-cookbooks/bluepill
+	url = https://github.com/opscode-cookbooks/bluepill.git
+
+[submodule "chef/site-cookbooks/ohai"]
+	path = chef/site-cookbooks/ohai
+	url = https://github.com/opscode-cookbooks/ohai.git
+
+[submodule "chef/site-cookbooks/runit"]
+	path = chef/site-cookbooks/runit
+	url = https://github.com/hw-cookbooks/runit.git
+
+[submodule "chef/site-cookbooks/rsyslog"]
+	path = chef/site-cookbooks/rsyslog
+	url = https://github.com/opscode-cookbooks/rsyslog.git
+
+[submodule "chef/site-cookbooks/yum"]
+	path = chef/site-cookbooks/yum
+	url = https://github.com/opscode-cookbooks/yum
+
+[submodule "chef/site-cookbooks/yum-epel"]
+	path = chef/site-cookbooks/yum-epel
+	url = https://github.com/opscode-cookbooks/yum-epel.git
+
+[submodule "chef/site-cookbooks/apt"]
+	path = chef/site-cookbooks/apt
+	url = https://github.com/opscode-cookbooks/apt.git
+
+[submodule "chef/site-cookbooks/git"]
+	path = chef/site-cookbooks/git
+	url = https://github.com/jssjr/git.git
+
+[submodule "chef/site-cookbooks/yum-mysql-community"]
+	path = chef/site-cookbooks/yum-mysql-community
+	url = https://github.com/opscode-cookbooks/yum-mysql-community
+
+[submodule "chef/site-cookbooks/xml"]
+	path = chef/site-cookbooks/xml
+	url = https://github.com/opscode-cookbooks/xml
+
+[submodule "chef/site-cookbooks/chef-sugar"]
+	path = chef/site-cookbooks/chef-sugar
+	url = https://github.com/sethvargo/chef-sugar
+
+
+
+

@@ -1,0 +1,36 @@
+daemonize yes
+pidfile <%= node['redis']['service']['pid_file'] %>
+port <%= node['redis']['service']['port'] %>
+bind 127.0.0.1
+timeout 0
+loglevel verbose
+logfile <%= node['redis']['service']['logdir'] %>/redis.log
+# syslog-enabled no
+# syslog-ident redis
+# syslog-facility local0
+databases 16
+
+dbfilename dump.rdb
+rdbcompression yes
+
+save 900 1
+save 300 10
+save 60 10000
+
+dir <%= node['redis']['service']['datadir'] %>
+
+
+################################## SECURITY ###################################
+
+
+################################### LIMITS ####################################
+
+
+############################## APPEND ONLY MODE ###############################
+
+
+############################### ADVANCED CONFIG ###############################
+
+
+
+################################## INCLUDES ###################################

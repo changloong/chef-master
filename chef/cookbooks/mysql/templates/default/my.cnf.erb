@@ -1,0 +1,54 @@
+[client]
+port = <%= node['mysql']['mysqld']['port'] %>
+socket = <%= node['mysql']['mysqld']['socket'] %>
+
+[mysqld]
+port = <%= node['mysql']['mysqld']['port'] %>
+bind-address=<%= node['mysql']['mysqld']['bind_address'] %>
+socket = <%= node['mysql']['mysqld']['socket'] %>
+pid-file = <%= node['mysql']['mysqld']['pid_file'] %>
+basedir = <%= node['mysql']['mysqld']['basedir'] %>
+datadir = <%= node['mysql']['mysqld']['datadir'] %>
+tmpdir = <%= node['mysql']['mysqld']['tmpdir'] %>
+user = <%= node['mysql']['mysqld']['user'] %>
+#group = <%= node['mysql']['mysqld']['group'] %>
+
+skip-name-resolve
+skip-symbolic-links
+#skip-external-locking
+skip-slave-start
+<% if node['mysql']['mysqld']['skip_networking'] %>
+skip-networking
+<% end %>
+
+default-time-zone = system
+explicit_defaults_for_timestamp=true
+character-set-server = <%= node['mysql']['mysqld']['character_set_server'] %>
+collation-server = <%= node['mysql']['mysqld']['collation_server'] %>
+
+# warning & error log
+log-error = <%= node['mysql']['mysqld']['logdir'] %>/<%= node['mysql']['service']['name'] %>_mysqld_error.log
+
+# slow query log
+slow_query_log = 1
+long-query-time = 1
+slow_query_log_file = <%= node['mysql']['mysqld']['logdir'] %>/<%= node['mysql']['service']['name'] %>_mysqld_slow.log
+#log-queries-not-using-indexes
+#log-slow-slave-statements
+
+general_log = 1
+general_log_file = <%= node['mysql']['mysqld']['logdir'] %>/<%= node['mysql']['service']['name'] %>_mysqld_general.log
+
+#log-bin=<%= node['mysql']['mysqld']['datadir'] %>/bin
+
+!include <%= node['mysql']['service']['etc_dir'] %>/mysqld.cnf
+
+
+[mysqldump]
+quick
+max_allowed_packet = 64M
+
+[mysql]
+disable-auto-rehash
+default-character-set = <%= node['mysql']['mysqld']['character_set_server'] %>
+connect-timeout = 3

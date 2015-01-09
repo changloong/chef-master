@@ -1,0 +1,6 @@
+#!/bin/sh
+PATH="<%= node['mysql']['service']['bin_dir'] %>:/sbin:/usr/sbin:/bin:/usr/bin"
+export PATH
+<%= node['mysql']['service']['bin_dir'] %>/mysqld_safe \
+    --defaults-file="<%= node['mysql']['service']['etc_dir'] %>/my.cnf" \
+    --ledir="<%= node['mysql']['service']['bin_dir'] %>"  $*

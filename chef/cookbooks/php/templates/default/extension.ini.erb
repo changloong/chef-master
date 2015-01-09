@@ -1,0 +1,8 @@
+; configuration for php <%= @name %> module
+<% if @name == 'opcache' %>zend_<% end %>extension=<%= @name %>.so
+<% if @ext.has_key?('ini') %>
+<% @ext.ini.each do |key, value| -%>
+<%= "#{key}=#{value}" %>
+<% end -%>
+<% end -%>
+

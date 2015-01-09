@@ -1,0 +1,15 @@
+/.idea/
+/web/bundles/
+/web/*/bundles/
+/app/cache/*
+/app/config/local.php
+/app/config/keys/
+/app/logs/
+/app/Resources/java/*.jar
+/chef/site-cookbooks/
+/node_modules/
+/vendor/
+/composer.phar
+!app/config/keys/.gitkeep
+!app/cache/.gitkeep
+!app/logs/.gitkeep

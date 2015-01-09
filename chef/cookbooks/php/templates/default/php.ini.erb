@@ -1,0 +1,307 @@
+[PHP]
+
+;;;;;;;;;;;;;;;;;;;;
+; php.ini Options  ;
+;;;;;;;;;;;;;;;;;;;;
+user_ini.filename =  <% if node['php']['ini'].has_key?('user_ini.filename') %> <%= node['php']['ini']['user_ini.filename'] %> <% end %>
+user_ini.cache_ttl = <% if node['php']['ini'].has_key?('user_ini.cache_ttl') %> <%= node['php']['ini']['user_ini.cache_ttl'] %> <% else %> 300 <% end %>
+
+;;;;;;;;;;;;;;;;;;;;
+; Language Options ;
+;;;;;;;;;;;;;;;;;;;;
+engine = <% if node['php']['ini'].has_key?('engine') %> <%= node['php']['ini']['engine'] %> <% else %> On <% end %>
+short_open_tag = <% if node['php']['ini'].has_key?('short_open_tag') %> <%= node['php']['ini']['short_open_tag'] %> <% else %> Off <% end %>
+asp_tags = <% if node['php']['ini'].has_key?('asp_tags') %> <%= node['php']['ini']['asp_tags'] %> <% else %> Off <% end %>
+precision =  <% if node['php']['ini'].has_key?('precision') %> <%= node['php']['ini']['precision'] %> <% else %> 14  <% end %>
+y2k_compliance = <% if node['php']['ini'].has_key?('y2k_compliance') %> <%= node['php']['ini']['y2k_compliance'] %> <% else %> On  <% end %>
+output_buffering = <% if node['php']['ini'].has_key?('output_buffering') %> <%= node['php']['ini']['output_buffering'] %> <% else %> 4096  <% end %>
+output_handler = <% if node['php']['ini'].has_key?('output_handler') %> <%= node['php']['ini']['output_handler'] %> <% end %>
+zlib.output_compression = <% if node['php']['ini'].has_key?('zlib.output_compression') %> <%= node['php']['ini']['zlib.output_compression'] %> <% else %> off <% end %>
+zlib.output_compression_level = <% if node['php']['ini'].has_key?('zlib.output_compression_level') %> <%= node['php']['ini']['zlib.output_compression_level'] %> <% else %> -1 <% end %>
+zlib.output_handler = <% if node['php']['ini'].has_key?('zlib.output_handler') %> <%= node['php']['ini']['zlib.output_handler'] %> <% end %>
+implicit_flush = <% if node['php']['ini'].has_key?('zlib.implicit_flush') %> <%= node['php']['ini']['zlib.implicit_flush'] %> <% end %>
+unserialize_callback_func = <% if node['php']['ini'].has_key?('unserialize_callback_func') %> <%= node['php']['ini']['unserialize_callback_func'] %> <% end %>
+serialize_precision = 100
+allow_call_time_pass_reference = <% if node['php']['ini'].has_key?('allow_call_time_pass_reference') %> <%= node['php']['ini']['allow_call_time_pass_reference'] %> <% else %> off <% end %>
+safe_mode =  <% if node['php']['ini'].has_key?('safe_mode') %> <%= node['php']['ini']['safe_mode'] %> <% else %> Off <% end %>
+safe_mode_gid = <% if node['php']['ini'].has_key?('safe_mode_gid') %> <%= node['php']['ini']['safe_mode_gid'] %> <% else %> Off <% end %>
+safe_mode_include_dir = <% if node['php']['ini'].has_key?('safe_mode_include_dir') %> <%= node['php']['ini']['safe_mode_include_dir'] %> <% end %>
+safe_mode_exec_dir = <% if node['php']['ini'].has_key?('safe_mode_exec_dir') %> <%= node['php']['ini']['safe_mode_exec_dir'] %> <% end %>
+safe_mode_allowed_env_vars = <% if node['php']['ini'].has_key?('safe_mode_allowed_env_vars') %> <%= node['php']['ini']['safe_mode_allowed_env_vars'] %> <% else %> PHP_ <% end %>
+safe_mode_protected_env_vars = <% if node['php']['ini'].has_key?('safe_mode_protected_env_vars') %> <%= node['php']['ini']['safe_mode_protected_env_vars'] %> <% else %> LD_LIBRARY_PATH <% end %>
+open_basedir = <% if node['php']['ini'].has_key?('open_basedir') %> <%= node['php']['ini']['open_basedir'] %> <% end %>
+disable_functions = <% if node['php']['ini'].has_key?('disable_functions') %> <%= node['php']['ini']['disable_functions'] %> <% end %>
+disable_classes = <% if node['php']['ini'].has_key?('disable_classes') %> <%= node['php']['ini']['disable_classes'] %> <% end %>
+
+;highlight.string  = #DD0000
+;highlight.comment = #FF9900
+;highlight.keyword = #007700
+;highlight.bg      = #FFFFFF
+;highlight.default = #0000BB
+;highlight.html    = #000000
+
+ignore_user_abort = <% if node['php']['ini'].has_key?('ignore_user_abort') %> <%= node['php']['ini']['ignore_user_abort'] %> <% else %> off  <% end %>
+realpath_cache_size = <% if node['php']['ini'].has_key?('realpath_cache_size') %> <%= node['php']['ini']['realpath_cache_size'] %> <% else %> 16k  <% end %>
+realpath_cache_ttl = <% if node['php']['ini'].has_key?('realpath_cache_ttl') %> <%= node['php']['ini']['realpath_cache_ttl'] %> <% else %> 120  <% end %>
+
+;;;;;;;;;;;;;;;;;
+; Miscellaneous ;
+;;;;;;;;;;;;;;;;;
+expose_php = <% if node['php']['ini'].has_key?('expose_php') %> <%= node['php']['ini']['expose_php'] %> <% else %> Off <% end %>
+
+;;;;;;;;;;;;;;;;;;;
+; Resource Limits ;
+;;;;;;;;;;;;;;;;;;;
+
+max_execution_time = <% if node['php']['ini'].has_key?('max_execution_time') %> <%= node['php']['ini']['max_execution_time'] %> <% else %> 30 <% end %>
+max_input_time = <% if node['php']['ini'].has_key?('max_input_time') %> <%= node['php']['ini']['max_input_time'] %> <% else %> 60 <% end %>
+;max_input_nesting_level = 64
+memory_limit = <% if node['php']['ini'].has_key?('memory_limit') %> <%= node['php']['ini']['memory_limit'] %> <% else %> 128M  <% end %>
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Error handling and logging ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+error_reporting = <% if node['php']['ini'].has_key?('error_reporting') %> <%= node['php']['ini']['error_reporting'] %> <% else %> E_ALL & ~E_DEPRECATED  <% end %>
+display_errors = <% if node['php']['ini'].has_key?('display_errors') %> <%= node['php']['ini']['display_errors'] %> <% else %> off <% end %>
+display_startup_errors = <% if node['php']['ini'].has_key?('display_startup_errors') %> <%= node['php']['ini']['display_startup_errors'] %> <% else %> off <% end %>
+log_errors = <% if node['php']['ini'].has_key?('log_errors') %> <%= node['php']['ini']['log_errors'] %> <% else %> off <% end %>
+log_errors_max_len = <% if node['php']['ini'].has_key?('log_errors_max_len') %> <%= node['php']['ini']['log_errors_max_len'] %> <% else %> 1024 <% end %>
+ignore_repeated_errors = <% if node['php']['ini'].has_key?('ignore_repeated_errors') %> <%= node['php']['ini']['ignore_repeated_errors'] %> <% else %> off <% end %>
+ignore_repeated_source = <% if node['php']['ini'].has_key?('ignore_repeated_source') %> <%= node['php']['ini']['ignore_repeated_source'] %> <% else %> off <% end %>
+report_memleaks = <% if node['php']['ini'].has_key?('report_memleaks') %> <%= node['php']['ini']['report_memleaks'] %> <% else %> On  <% end %>
+track_errors = <% if node['php']['ini'].has_key?('track_errors') %> <%= node['php']['ini']['track_errors'] %> <% else %> On  <% end %>
+;xmlrpc_errors = 0
+;xmlrpc_error_number = 0
+html_errors = <% if node['php']['ini'].has_key?('html_errors') %> <%= node['php']['ini']['html_errors'] %> <% else %> Off  <% end %>
+
+;error_prepend_string = "<font color=#ff0000>"
+;error_append_string = "</font>"
+
+;error_log = <% if node['php']['ini'].has_key?('error_log') %> <%= node['php']['ini']['error_log'] %> <% else %> syslog <% end %>
+
+;;;;;;;;;;;;;;;;;
+; Data Handling ;
+;;;;;;;;;;;;;;;;;
+;arg_separator.output = "&amp;"
+;arg_separator.input = ";&"
+variables_order = <% if node['php']['ini'].has_key?('variables_order') %> <%= node['php']['ini']['variables_order'] %> <% else %> "GPCS"  <% end %>
+request_order = <% if node['php']['ini'].has_key?('request_order') %> <%= node['php']['ini']['request_order'] %> <% else %> "GP"  <% end %>
+register_globals = <% if node['php']['ini'].has_key?('register_globals') %> <%= node['php']['ini']['register_globals'] %> <% else %> Off  <% end %>
+register_long_arrays =  <% if node['php']['ini'].has_key?('register_long_arrays') %> <%= node['php']['ini']['register_long_arrays'] %> <% else %> Off  <% end %>
+register_argc_argv = <% if node['php']['ini'].has_key?('register_argc_argv') %> <%= node['php']['ini']['register_argc_argv'] %> <% else %> Off  <% end %>
+auto_globals_jit =  <% if node['php']['ini'].has_key?('auto_globals_jit') %> <%= node['php']['ini']['auto_globals_jit'] %> <% else %> On  <% end %>
+post_max_size = <%= node['php']['ini']['post_max_size'] %>
+magic_quotes_gpc = <% if node['php']['ini'].has_key?('magic_quotes_gpc') %> <%= node['php']['ini']['magic_quotes_gpc'] %> <% else %> Off <% end %>
+magic_quotes_runtime = <% if node['php']['ini'].has_key?('magic_quotes_runtime') %> <%= node['php']['ini']['magic_quotes_runtime'] %> <% else %> Off <% end %>
+magic_quotes_sybase = Off
+auto_prepend_file = <% if node['php']['ini'].has_key?('auto_prepend_file') %> <%= node['php']['ini']['auto_prepend_file'] %> <% end %>
+auto_append_file = <% if node['php']['ini'].has_key?('auto_append_file') %> <%= node['php']['ini']['auto_append_file'] %> <% end %>
+default_mimetype = <% if node['php']['ini'].has_key?('default_mimetype') %> <%= node['php']['ini']['default_mimetype'] %> <% else %> 'text/html' <% end %>
+default_charset =  <% if node['php']['ini'].has_key?('default_charset') %> <%= node['php']['ini']['default_charset'] %> <% else %> 'utf-8' <% end %>
+;always_populate_raw_post_data = On
+
+;;;;;;;;;;;;;;;;;;;;;;;;;
+; Paths and Directories ;
+;;;;;;;;;;;;;;;;;;;;;;;;;
+include_path = <% if node['php']['ini'].has_key?('include_path') %> <%= node['php']['ini']['include_path'] %> <% else %> '.' <% end %>
+doc_root =
+user_dir =
+;extension_dir = "ext"
+enable_dl = <% if node['php']['ini'].has_key?('enable_dl') %> <%= node['php']['ini']['enable_dl'] %> <% else %> Off<% end %>
+cgi.force_redirect = <% if node['php']['ini'].has_key?('cgi.force_redirect') %> <%= node['php']['ini']['cgi.force_redirect'] %> <% else %> 1 <% end %>
+;cgi.nph = 1
+;cgi.redirect_status_env = ;
+cgi.fix_pathinfo=<% if node['php']['ini'].has_key?('cgi.fix_pathinfo') %> <%= node['php']['ini']['cgi.fix_pathinfo'] %> <% else %> 1 <% end %>
+;fastcgi.impersonate = 1;
+;fastcgi.logging = 0
+;cgi.rfc2616_headers = 0
+
+;;;;;;;;;;;;;;;;
+; File Uploads ;
+;;;;;;;;;;;;;;;;
+file_uploads = <% if node['php']['ini'].has_key?('file_uploads') %> <%= node['php']['ini']['file_uploads'] %> <% else %> On <% end %>
+upload_tmp_dir = <% if node['php']['ini'].has_key?('upload_tmp_dir') %> <%= node['php']['ini']['upload_tmp_dir'] %> <% else %> /tmp <% end %>
+upload_max_filesize =  <%= node['php']['ini']['upload_max_filesize'] %>
+max_file_uploads = <% if node['php']['ini'].has_key?('max_file_uploads') %> <%= node['php']['ini']['max_file_uploads'] %> <% else %> 20 <% end %>
+
+;;;;;;;;;;;;;;;;;;
+; Fopen wrappers ;
+;;;;;;;;;;;;;;;;;;
+allow_url_fopen = <% if node['php']['ini'].has_key?('allow_url_fopen') %> <%= node['php']['ini']['allow_url_fopen'] %> <% else %> On <% end %>
+allow_url_include = <% if node['php']['ini'].has_key?('allow_url_include') %> <%= node['php']['ini']['allow_url_include'] %> <% else %> Off <% end %>
+default_socket_timeout = <% if node['php']['ini'].has_key?('default_socket_timeout') %> <%= node['php']['ini']['default_socket_timeout'] %> <% else %> 60 <% end %>
+auto_detect_line_endings = <% if node['php']['ini'].has_key?('auto_detect_line_endings') %> <%= node['php']['ini']['auto_detect_line_endings'] %> <% else %>  Off <% end %>
+
+;;;;;;;;;;;;;;;;;;;
+; Module Settings ;
+;;;;;;;;;;;;;;;;;;;
+
+[Date]
+date.timezone = <% if node['php']['ini'].has_key?('date.timezone') %> <%= node['php']['ini']['date.timezone'] %> <% else %> 'UTC' <% end %>
+;date.default_latitude = 31.7667
+;date.default_longitude = 35.2333
+;date.sunrise_zenith = 90.583333
+;date.sunset_zenith = 90.583333
+
+[iconv]
+iconv.input_encoding = <% if node['php']['ini'].has_key?('iconv.input_encoding') %> <%= node['php']['ini']['iconv.input_encoding'] %> <% else %> ISO-8859-1 <% end %>
+iconv.internal_encoding = <% if node['php']['ini'].has_key?('iconv.internal_encoding') %> <%= node['php']['ini']['iconv.internal_encoding'] %> <% else %> ISO-8859-1 <% end %>
+iconv.output_encoding = <% if node['php']['ini'].has_key?('iconv.output_encoding') %> <%= node['php']['ini']['iconv.output_encoding'] %> <% else %> ISO-8859-1 <% end %>
+
+[intl]
+intl.default_locale = <% if node['php']['ini'].has_key?('intl.default_locale') %> <%= node['php']['ini']['intl.default_locale'] %> <% end %>
+intl.error_level =  <% if node['php']['ini'].has_key?('intl.error_level') %> <%= node['php']['ini']['intl.error_level'] %> <% else %> E_WARNING <% end %>
+
+[sqlite]
+;sqlite.assoc_case = 0
+
+[sqlite3]
+;sqlite3.extension_dir =
+
+[Pcre]
+;pcre.backtrack_limit=100000
+;pcre.recursion_limit=100000
+
+[Pdo]
+;pdo_odbc.connection_pooling=strict
+;pdo_odbc.db2_instance_name
+
+[Pdo_mysql]
+pdo_mysql.cache_size = <% if node['php']['ini'].has_key?('pdo_mysql.cache_size') %> <%= node['php']['ini']['pdo_mysql.cache_size'] %> <% else %> 2000 <% end %>
+pdo_mysql.default_socket = <% if node['php']['ini'].has_key?('pdo_mysql.default_socket') %> <%= node['php']['ini']['pdo_mysql.default_socket'] %> <% end %>
+
+[Phar]
+phar.readonly = <% if node['php']['ini'].has_key?('phar.readonly') %> <%= node['php']['ini']['phar.readonly'] %> <% else %> on <% end %>
+phar.require_hash = <% if node['php']['ini'].has_key?('phar.require_hash') %> <%= node['php']['ini']['phar.require_hash'] %> <% else %> on <% end %>
+phar.cache_list = <% if node['php']['ini'].has_key?('phar.cache_list') %> <%= node['php']['ini']['phar.cache_list'] %> <% end %>
+
+[Syslog]
+define_syslog_variables  = Off
+
+[mail function]
+SMTP = <% if node['php']['ini'].has_key?('SMTP') %> <%= node['php']['ini']['SMTP'] %> localhost <% end %>
+smtp_port = <% if node['php']['ini'].has_key?('smtp_port') %> <%= node['php']['ini']['smtp_port'] %> 25 <% end %>
+sendmail_from = <% if node['php']['ini'].has_key?('sendmail_from') %> <%= node['php']['ini']['sendmail_from'] %> <% end %>
+sendmail_path = <% if node['php']['ini'].has_key?('sendmail_path') %> <%= node['php']['ini']['sendmail_path'] %>  <% end %>
+mail.force_extra_parameters = <% if node['php']['ini'].has_key?('mail.force_extra_parameters') %> <%= node['php']['ini']['mail.force_extra_parameters'] %> <% end %>
+mail.add_x_header =  <% if node['php']['ini'].has_key?('mail.add_x_header') %> <%= node['php']['ini']['mail.add_x_header'] %> <% else %> On <% end %>
+mail.log = <% if node['php']['ini'].has_key?('mail.log') %> <%= node['php']['ini']['mail.log'] %> <% end %>
+
+[MySQL]
+mysql.allow_local_infile = <% if node['php']['ini'].has_key?('mysql.allow_local_infile') %> <%= node['php']['ini']['mysql.allow_local_infile'] %> <% else %> on <% end %>
+mysql.allow_persistent = <% if node['php']['ini'].has_key?('mysql.allow_persistent') %> <%= node['php']['ini']['mysql.allow_persistent'] %> <% else %> on <% end %>
+mysql.cache_size = <% if node['php']['ini'].has_key?('mysql.cache_size') %> <%= node['php']['ini']['mysql.cache_size'] %> <% else %> 2000 <% end %>
+mysql.max_persistent = <% if node['php']['ini'].has_key?('mysql.max_persistent') %> <%= node['php']['ini']['mysql.max_persistent'] %> <% else %> -1  <% end %>
+mysql.max_links = <% if node['php']['ini'].has_key?('mysql.max_links') %> <%= node['php']['ini']['mysql.max_links'] %> <% else %> -1  <% end %>
+mysql.default_port = <% if node['php']['ini'].has_key?('mysql.default_port') %> <%= node['php']['ini']['mysql.default_port'] %> <% else %>  <% end %>
+mysql.default_socket = <% if node['php']['ini'].has_key?('mysql.default_port') %> <%= node['php']['ini']['mysql.default_port'] %> <% else %>  <% end %>
+mysql.default_host = <% if node['php']['ini'].has_key?('mysql.default_host') %> <%= node['php']['ini']['mysql.default_host'] %> <% else %>  <% end %>
+mysql.default_user = <% if node['php']['ini'].has_key?('mysql.default_user') %> <%= node['php']['ini']['mysql.default_user'] %> <% else %>  <% end %>
+mysql.default_password = <% if node['php']['ini'].has_key?('mysql.default_password') %> <%= node['php']['ini']['mysql.default_password'] %> <% else %>  <% end %>
+mysql.connect_timeout =  <% if node['php']['ini'].has_key?('mysql.connect_timeout') %> <%= node['php']['ini']['mysql.connect_timeout'] %> <% else %> 60 <% end %>
+mysql.trace_mode = <% if node['php']['ini'].has_key?('mysql.trace_mode') %> <%= node['php']['ini']['mysql.trace_mode'] %> <% else %> Off  <% end %>
+
+[MySQLi]
+mysqli.max_persistent = <% if node['php']['ini'].has_key?('mysqli.max_persistent') %> <%= node['php']['ini']['mysqli.max_persistent'] %> <% else %> -1 <% end %>
+;mysqli.allow_local_infile = On
+mysqli.allow_persistent = <% if node['php']['ini'].has_key?('mysqli.allow_persistent') %> <%= node['php']['ini']['mysqli.allow_persistent'] %> <% else %> on <% end %>
+mysqli.max_links = <% if node['php']['ini'].has_key?('mysqli.max_links') %> <%= node['php']['ini']['mysqli.max_links'] %> <% else %> -1 <% end %>
+mysqli.cache_size =  <% if node['php']['ini'].has_key?('mysqli.cache_size') %> <%= node['php']['ini']['mysqli.cache_size'] %> <% else %> 2000 <% end %>
+mysqli.default_port = <% if node['php']['ini'].has_key?('mysqli.default_port') %> <%= node['php']['ini']['mysqli.default_port'] %> <% else %> 3306 <% end %>
+mysqli.default_socket = <% if node['php']['ini'].has_key?('mysqli.default_socket') %> <%= node['php']['ini']['mysqli.default_socket'] %> <% else %> <% end %>
+mysqli.default_host = <% if node['php']['ini'].has_key?('mysqli.default_host') %> <%= node['php']['ini']['mysqli.default_host'] %> <% else %> <% end %>
+mysqli.default_user = <% if node['php']['ini'].has_key?('mysqli.default_user') %> <%= node['php']['ini']['mysqli.default_user'] %> <% else %> <% end %>
+mysqli.default_pw = <% if node['php']['ini'].has_key?('mysqli.default_pw') %> <%= node['php']['ini']['mysqli.default_pw'] %> <% else %> <% end %>
+mysqli.reconnect = <% if node['php']['ini'].has_key?('mysqli.reconnect') %> <%= node['php']['ini']['mysqli.reconnect'] %> <% else %> off <% end %>
+
+[mysqlnd]
+mysqlnd.collect_statistics = <% if node['php']['ini'].has_key?('mysqli.collect_statistics') %> <%= node['php']['ini']['mysqli.collect_statistics'] %> <% else %> on <% end %>
+mysqlnd.collect_memory_statistics = <% if node['php']['ini'].has_key?('mysqli.collect_memory_statistics') %> <%= node['php']['ini']['mysqli.collect_memory_statistics'] %> <% else %> off <% end %>
+mysqlnd.net_cmd_buffer_size = <% if node['php']['ini'].has_key?('mysqli.net_cmd_buffer_size') %> <%= node['php']['ini']['mysqli.net_cmd_buffer_size'] %> <% else %> 2048 <% end %>
+mysqlnd.net_read_buffer_size = <% if node['php']['ini'].has_key?('mysqli.net_read_buffer_size') %> <%= node['php']['ini']['mysqli.net_read_buffer_size'] %> <% else %> 32768  <% end %>
+
+[bcmath]
+bcmath.scale = <% if node['php']['ini'].has_key?('bcmath.scale') %> <%= node['php']['ini']['bcmath.scale'] %> <% else %> 0  <% end %>
+
+[Session]
+session.save_handler = <% if node['php']['ini'].has_key?('session.save_handler') %> <%= node['php']['ini']['session.save_handler'] %> <% else %> files  <% end %>
+session.save_path = <% if node['php']['ini'].has_key?('session.save_path') %> <%= node['php']['ini']['session.save_path'] %> <% else %> /tmp <% end %>
+session.use_cookies = <% if node['php']['ini'].has_key?('session.use_cookies') %> <%= node['php']['ini']['session.use_cookies'] %> <% else %> 1 <% end %>
+session.cookie_secure = <% if node['php']['ini'].has_key?('session.cookie_secure') %> <%= node['php']['ini']['session.cookie_secure'] %> <% else %> <% end %>
+session.use_only_cookies = <% if node['php']['ini'].has_key?('session.use_only_cookies') %> <%= node['php']['ini']['session.use_only_cookies'] %> <% else %> 1 <% end %>
+session.name =  <% if node['php']['ini'].has_key?('session.name') %> <%= node['php']['ini']['session.name'] %> <% else %> PHPSESSID <% end %>
+session.auto_start = <% if node['php']['ini'].has_key?('session.auto_start') %> <%= node['php']['ini']['session.auto_start'] %> <% else %>0<% end %>
+session.cookie_lifetime = <% if node['php']['ini'].has_key?('session.cookie_lifetime') %> <%= node['php']['ini']['session.cookie_lifetime'] %> <% else %>0<% end %>
+session.cookie_path = <% if node['php']['ini'].has_key?('session.cookie_path') %> <%= node['php']['ini']['session.cookie_path'] %> <% else %> / <% end %>
+session.cookie_domain = <% if node['php']['ini'].has_key?('session.cookie_domain') %> <%= node['php']['ini']['session.cookie_domain'] %> <% else %> <% end %>
+session.cookie_httponly =  <% if node['php']['ini'].has_key?('session.cookie_httponly') %> <%= node['php']['ini']['session.cookie_httponly'] %> <% else %> <% end %>
+session.serialize_handler =  <% if node['php']['ini'].has_key?('session.serialize_handler') %> <%= node['php']['ini']['session.serialize_handler'] %> <% else %> php <% end %>
+session.gc_probability = <% if node['php']['ini'].has_key?('session.gc_probability') %> <%= node['php']['ini']['session.gc_probability'] %> <% else %> 1  <% end %>
+session.gc_divisor =  <% if node['php']['ini'].has_key?('session.gc_divisor') %> <%= node['php']['ini']['session.gc_divisor'] %> <% else %> 1000  <% end %>
+session.gc_maxlifetime = <% if node['php']['ini'].has_key?('session.gc_maxlifetime') %> <%= node['php']['ini']['session.gc_maxlifetime'] %> <% else %> 1440  <% end %>
+session.bug_compat_42 = <% if node['php']['ini'].has_key?('session.bug_compat_42') %> <%= node['php']['ini']['session.bug_compat_42'] %> <% else %> Off   <% end %>
+session.bug_compat_warn = <% if node['php']['ini'].has_key?('session.bug_compat_warn') %> <%= node['php']['ini']['session.bug_compat_warn'] %> <% else %> Off   <% end %>
+session.referer_check = <% if node['php']['ini'].has_key?('session.referer_check') %> <%= node['php']['ini']['session.referer_check'] %>  <% end %>
+session.entropy_length = <% if node['php']['ini'].has_key?('session.entropy_length') %> <%= node['php']['ini']['session.entropy_length'] %> <% else %> 0   <% end %>
+;session.entropy_file = /dev/urandom
+session.cache_limiter = <% if node['php']['ini'].has_key?('session.cache_limiter') %> <%= node['php']['ini']['session.cache_limiter'] %> <% else %> nocache  <% end %>
+session.cache_expire = <% if node['php']['ini'].has_key?('session.cache_expire') %> <%= node['php']['ini']['session.cache_expire'] %> <% else %> 180  <% end %>
+session.use_trans_sid = <% if node['php']['ini'].has_key?('session.use_trans_sid') %> <%= node['php']['ini']['session.use_trans_sid'] %> <% else %> 0  <% end %>
+session.hash_function = <% if node['php']['ini'].has_key?('session.hash_function') %> <%= node['php']['ini']['session.hash_function'] %> <% else %> 0  <% end %>
+session.hash_bits_per_character = <% if node['php']['ini'].has_key?('session.hash_bits_per_character') %> <%= node['php']['ini']['session.hash_bits_per_character'] %> <% else %> 5 <% end %>
+url_rewriter.tags = <% if node['php']['ini'].has_key?('url_rewriter.tags') %> <%= node['php']['ini']['url_rewriter.tags'] %> <% else %> "a=href,area=href,frame=src,input=src,form=fakeentry" <% end %>
+
+[Assertion]
+;assert.active = On
+;assert.warning = On
+;assert.bail = Off
+;assert.callback = 0
+;assert.quiet_eval = 0
+
+[mbstring]
+;mbstring.language = Japanese
+;mbstring.internal_encoding = EUC-JP
+;mbstring.http_input = auto
+;mbstring.http_output = SJIS
+;mbstring.encoding_translation = Off
+;mbstring.detect_order = auto
+;mbstring.substitute_character = none;
+;mbstring.func_overload = 0
+;mbstring.strict_detection = Off
+;mbstring.http_output_conv_mimetype=
+;mbstring.script_encoding=
+
+[gd]
+;gd.jpeg_ignore_warning = 0
+
+[exif]
+;exif.encode_unicode = ISO-8859-15
+;exif.decode_unicode_motorola = UCS-2BE
+;exif.decode_unicode_intel    = UCS-2LE
+;exif.encode_jis =
+;exif.decode_jis_motorola = JIS
+;exif.decode_jis_intel    = JIS
+
+[Tidy]
+;tidy.default_config = /usr/local/lib/php/default.tcfg
+tidy.clean_output = Off
+
+[soap]
+soap.wsdl_cache_enabled=<% if node['php']['ini'].has_key?('soap.wsdl_cache_enabled') %> <%= node['php']['ini']['soap.wsdl_cache_enabled'] %> <% else %> 1 <% end %>
+soap.wsdl_cache_dir=<% if node['php']['ini'].has_key?('soap.wsdl_cache_dir') %> <%= node['php']['ini']['soap.wsdl_cache_dir'] %> <% else %> /tmp  <% end %>
+soap.wsdl_cache_ttl=<% if node['php']['ini'].has_key?('soap.wsdl_cache_ttl') %> <%= node['php']['ini']['soap.wsdl_cache_ttl'] %> <% else %> 86400 <% end %>
+soap.wsdl_cache_limit = <% if node['php']['ini'].has_key?('soap.wsdl_cache_limit') %> <%= node['php']['ini']['soap.wsdl_cache_limit'] %> <% else %> 5 <% end %>
+
+[sysvshm]
+sysvshm.init_mem = <% if node['php']['ini'].has_key?('sysvshm.init_mem') %> <%= node['php']['ini']['sysvshm.init_mem'] %> <% else %> 10000 <% end %>
+
+[ldap]
+ldap.max_links = <% if node['php']['ini'].has_key?('ldap.max_links') %> <%= node['php']['ini']['ldap.max_links'] %> <% else %> -1 <% end %>
+
+[mcrypt]
+;mcrypt.algorithms_dir=
+;mcrypt.modes_dir=
+
+<% @directives.sort_by { |key, val| key }.each do |directive, value| -%>
+<%= "#{directive}=\"#{value}\"" %>
+<% end -%>

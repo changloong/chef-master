@@ -1,0 +1,6 @@
+#!/bin/sh
+phpbindir=$(dirname  "<%= node['php']['bin'] %>")
+if [ ! -f ./configure ]; then
+    $phpbindir/phpize
+fi
+./configure --with-php-config=$phpbindir/php-config $*

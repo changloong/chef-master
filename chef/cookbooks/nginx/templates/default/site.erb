@@ -1,0 +1,24 @@
+server {
+  listen   <%= node['nginx']['site']['listen'] %> <% if node['nginx']['site_default_server'] %> default_server <% end %>;
+  server_name  <%= node['nginx']['site']['server_name'] %>;
+
+  access_log  <%= node['nginx']['service']['log_dir'] %>/<%= node['nginx']['site']['name'] %>.access.log;
+  error_log  <%= node['nginx']['service']['log_dir'] %>/<%= node['nginx']['site']['name'] %>.error.log;
+
+  root <%= node['nginx']['site']['root'] %>;
+  autoindex <%= node['nginx']['site']['autoindex']%> ;
+
+  location / {
+    index  <% if node['nginx']['site']['php'].has_key?('pool')  %>index.php<% end %> index.html index.htm ;
+  }
+
+  <% if node['nginx']['site']['php'].has_key?('pool') and node['nginx']['site']['php']['pool']  %>
+      location ~ \.php$ {
+          fastcgi_pass   <%= node['nginx']['site']['php']['pool']['listen'] %> ;
+          include         <%= node['nginx']['service']['etc_dir'] %>/fastcgi.conf;
+          fastcgi_index  index.php;
+      }
+  <% end %>
+
+  include <%= node['nginx']['service']['conf_dir'] %>/<%= node['nginx']['site']['name'] %>.config;
+}

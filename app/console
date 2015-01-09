@@ -1,0 +1,29 @@
+#!/usr/bin/env php
+<?php
+
+require_once __DIR__.'/../vendor/autoload.php';
+
+$app = new Silex\Application();
+
+$app['env.config_path'] = $app->share(function () use($argv) {
+    $env    = 'dev' ;
+    foreach($argv as $arg_index => $arg_value) {
+        if( $arg_index ) {
+            if(preg_match('/\-\-env\=(\w+)$/', $arg_value, $arg_match)) {
+                $env    = $arg_match[1] ;
+            }
+        }
+    }
+    $path   = __DIR__ . '/config/' . $env . '.php' ;
+    if( !file_exists($path) ) {
+        throw new \Exception( sprintf("env `%s` is not one of (dev, prod, test)", $env));
+    }
+    return $path ;
+}) ;
+
+require $app['env.config_path'] ;
+
+require __DIR__.'/../src/bootstrap.php';
+require __DIR__.'/../src/console.php';
+
+$app['console']->run();
